@@ -1,0 +1,20 @@
+universe                = vanilla
+
+executable              = taskd4.sh
+
+log    = job_log_$(Process).txt
+error  = job_error_$(Process).txt
+output = job_out_$(Process).txt
+
+arguments = $(line)
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+
+transfer_input_files    = myenv.tar.gz, arc-basis_d4.py, taskd4.sh, requirements.txt, variables.txt
+transfer_output_files   = saved-calcs_d4
+
+request_cpus            = 20
+request_memory          = 3GB
+request_disk            = 3GB
+
+queue line from variables.txt
