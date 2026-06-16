@@ -1,0 +1,21 @@
+requirements = TARGET.IsOttenComputer =?= True
+
+universe                = vanilla
+
+executable              = test.sh
+
+log    = job_log_$(Process).txt
+output = job_out$(Process).txt
+error  = job_error$(Process).txt
+
+arguments = $(line)
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+
+transfer_input_files    = myenv.tar.gz, arc-eigenstate.py, test.sh, requirements.txt, variables.txt
+transfer_output_files   = saved-eigenstates
+request_cpus            = 20
+request_memory          = 3GB
+request_disk            = 3GB
+
+queue line from variables.txt
